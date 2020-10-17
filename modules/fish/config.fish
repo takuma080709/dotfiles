@@ -1,4 +1,5 @@
 # load functions.fish
+source ~/.config/fish/local.fish
 source ~/.config/fish/functions.fish
 
 # initialize
