@@ -40,6 +40,41 @@
 # end
 
 ####################
+#       ghq        #
+####################
+# function ghq_create
+#     cd (ghq create (echo $argv)) | gh repo create (echo $argv) --public -y
+#     echo "# "(echo $argv) >> README.md
+#     git init
+#     git add README.md
+#     git commit -m "first commit"
+#     git branch -M master
+#     git remote add origin git@github.com:takuma080709/(echo $argv).git
+#     git push -u origin master
+# end
+
+# function ghq_users
+#     ghq list | grep "github.com" | cut -d / -f 2 | sort | uniq
+# end
+
+# function ghq_user_all
+#     curl "https://api.github.com/users/"(echo $argv)"/repos" | jq -r ".[].clone_url" | xargs -L1 ghq get
+# end
+
+# function ghq_org_all
+#     curl "takuma080709" "https://api.github.com/orgs/"(echo $argv)"/repos" | jq -r ".[].clone_url" | xargs -L1 ghq get
+# end
+
+# function ghq_remove
+#     ghq list --full-path | peco | xargs -L1 rm -fr
+# end
+
+# function ghq_remove_user
+#     ghq list | grep "github.com" | cut -d / -f 2 | sort | uniq | peco | read recent
+#     ghq list --full-path | grep -E "/"(echo $recent)"/" | xargs -L1 rm -fr
+# end
+
+####################
 #       tmux       #
 ####################
 # function attach_tmux_session_if_needed
